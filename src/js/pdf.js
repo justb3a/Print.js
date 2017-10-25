@@ -2,10 +2,10 @@ import Browser from './browser'
 import Print from './print'
 
 export default {
-  print: (params, printFrame) => {
+  print: function(params, printFrame) {
     // If showing feedback to user, pre load pdf files (hacky)
     if (params.showModal || Browser.isIE()) {
-      let req = new window.XMLHttpRequest()
+      var req = new window.XMLHttpRequest()
       req.addEventListener('load', send(params, printFrame))
       req.open('GET', window.location.href + params.printable, true)
       req.send()

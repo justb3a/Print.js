@@ -2,20 +2,20 @@ import { addHeader } from './functions'
 import Print from './print'
 
 export default {
-  print: (params, printFrame) => {
+  print: function(params, printFrame) {
     // Create the image element
-    let img = document.createElement('img')
+    var img = document.createElement('img')
 
     // Set image src with image file url
     img.src = params.printable
 
     // Load image
-    img.onload = () => {
+    img.onload = function() {
       img.setAttribute('style', 'width:100%;')
       img.setAttribute('id', 'printableImage')
 
       // Create wrapper
-      let printableElement = document.createElement('div')
+      var printableElement = document.createElement('div')
       printableElement.setAttribute('style', 'width:100%')
       printableElement.appendChild(img)
 
